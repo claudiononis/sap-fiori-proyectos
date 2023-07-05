@@ -1,0 +1,62 @@
+<mvc:View controllerName="sapui5.laboratoriosapui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        
+           <Panel headerText="Clientes" class="sapUiSmallMargin"  width="80%" height="50%">
+                <Table id="clientes" items="{laboratorio>/ClientesSet}"  growing="true" growingThreshold="20">
+               <columns>
+                   <Column >
+                       <header>
+                           <Label text="{i18n>Id}"></Label>
+                       </header>
+                   </Column>
+                   
+                   <Column >
+                       <header>
+                           <Label text="{i18n>Nombres}"></Label>
+                       </header>
+                   </Column>
+                   <Column >
+                       <header>
+                           <Label text="{i18n>Calle}"></Label>
+                       </header>
+                   </Column>
+                   <Column >
+                       <header>
+                           <Label text="{i18n>Ciudad}"></Label>
+                       </header>
+                   </Column>
+                    <Column >
+                       <header>
+                           <Label text="{i18n>Pais}"></Label>
+                       </header>
+                   </Column>
+
+               </columns>
+               <items >
+                   <ColumnListItem >
+                       <cells>
+                           <Label text="prueba"></Label>
+                           <Label text="{laboratorio>Name}"></Label>
+                           <Label text="{laboratorio>Street}"></Label>
+                           <Label text="{laboratorio>City}"></Label>
+                           <Label text="{laboratorio>Country}"></Label>
+                       </cells>
+
+                   </ColumnListItem>
+               </items>
+           </Table>
+                   
+           </Panel>
+           <Panel headerText="Integrantes" class="sapUiSmallMargin"  width="80%" height="30%">
+               
+                   
+           </Panel>
+                   
+          
+           
+        
+        
+   </Page>
+</mvc:View>

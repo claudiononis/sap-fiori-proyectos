@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<edmx:Edmx xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+
+
+-<edmx:DataServices m:DataServiceVersion="2.0">
+
+
+-<Schema xml:lang="es" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" Namespace="ZLABORATORIO_CN_SRV">
+
+
+-<EntityType sap:content-version="1" Name="Clientes">
+
+
+-<Key>
+
+<PropertyRef Name="Id"/>
+
+</Key>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Id" sap:filterable="false" sap:sortable="false" sap:label="Nº cliente" sap:unicode="false" MaxLength="8" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Name" sap:filterable="false" sap:sortable="false" sap:label="Nombre cliente" sap:unicode="false" MaxLength="25" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Street" sap:filterable="false" sap:sortable="false" sap:label="Calle" sap:unicode="false" MaxLength="30" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="City" sap:filterable="false" sap:sortable="false" sap:label="Ciudad" sap:unicode="false" MaxLength="25" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Country" sap:filterable="false" sap:sortable="false" sap:label="País" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Telephone" sap:filterable="false" sap:sortable="false" sap:label="Tel." sap:unicode="false" MaxLength="30" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Custtype" sap:filterable="false" sap:sortable="false" sap:label="Cliente E/P" sap:unicode="false" MaxLength="1" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Discount" sap:filterable="false" sap:sortable="false" sap:label="Descuento (%)" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Email" sap:filterable="false" sap:sortable="false" sap:label="Dir.cor.elec." sap:unicode="false" MaxLength="40" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Webuser" sap:filterable="false" sap:sortable="false" sap:label="Nombre web" sap:unicode="false" MaxLength="25" Nullable="false" Type="Edm.String"/>
+
+<NavigationProperty Name="Integrantes" ToRole="ToRole_ClienteIntegrante" FromRole="FromRole_ClienteIntegrante" Relationship="ZLABORATORIO_CN_SRV.ClienteIntegrante"/>
+
+</EntityType>
+
+
+-<EntityType sap:content-version="1" Name="Integrantes">
+
+
+-<Key>
+
+<PropertyRef Name="Id"/>
+
+<PropertyRef Name="IdInteg"/>
+
+</Key>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Id" sap:filterable="false" sap:sortable="false" sap:label="Nº cliente" sap:unicode="false" MaxLength="8" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="IdInteg" sap:filterable="false" sap:sortable="false" sap:label="Nº cliente" sap:unicode="false" MaxLength="8" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Nombre" sap:filterable="false" sap:sortable="false" sap:label="Nombre cliente" sap:unicode="false" MaxLength="25" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Relacion" sap:filterable="false" sap:sortable="false" sap:label="Car.20" sap:unicode="false" MaxLength="20" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="FecNac" sap:filterable="false" sap:sortable="false" sap:label="Fecha" sap:unicode="false" MaxLength="8" Nullable="false" Type="Edm.String"/>
+
+<Property sap:updatable="false" sap:creatable="false" Name="Sexo" sap:filterable="false" sap:sortable="false" sap:label="Car.20" sap:unicode="false" MaxLength="20" Nullable="false" Type="Edm.String"/>
+
+</EntityType>
+
+
+-<Association sap:content-version="1" Name="ClienteIntegrante">
+
+<End Type="ZLABORATORIO_CN_SRV.Clientes" Role="FromRole_ClienteIntegrante" Multiplicity="1"/>
+
+<End Type="ZLABORATORIO_CN_SRV.Integrantes" Role="ToRole_ClienteIntegrante" Multiplicity="1"/>
+
+
+-<ReferentialConstraint>
+
+
+-<Principal Role="FromRole_ClienteIntegrante">
+
+<PropertyRef Name="Id"/>
+
+</Principal>
+
+
+-<Dependent Role="ToRole_ClienteIntegrante">
+
+<PropertyRef Name="Id"/>
+
+</Dependent>
+
+</ReferentialConstraint>
+
+</Association>
+
+
+-<EntityContainer Name="ZLABORATORIO_CN_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
+
+<EntitySet sap:content-version="1" sap:pageable="false" sap:deletable="false" sap:updatable="false" sap:creatable="false" Name="ClientesSet" EntityType="ZLABORATORIO_CN_SRV.Clientes"/>
+
+<EntitySet sap:content-version="1" sap:pageable="false" sap:deletable="false" sap:updatable="false" sap:creatable="false" Name="IntegrantesSet" EntityType="ZLABORATORIO_CN_SRV.Integrantes"/>
+
+
+-<AssociationSet sap:content-version="1" sap:deletable="false" sap:updatable="false" sap:creatable="false" Name="ClienteIntegranteSet" Association="ZLABORATORIO_CN_SRV.ClienteIntegrante">
+
+<End Role="FromRole_ClienteIntegrante" EntitySet="ClientesSet"/>
+
+<End Role="ToRole_ClienteIntegrante" EntitySet="IntegrantesSet"/>
+
+</AssociationSet>
+
+</EntityContainer>
+
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://ecs-s4dev.tensolite.com:8000/sap/opu/odata/SAP/ZLABORATORIO_CN_SRV/$metadata" rel="self"/>
+
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://ecs-s4dev.tensolite.com:8000/sap/opu/odata/SAP/ZLABORATORIO_CN_SRV/$metadata" rel="latest-version"/>
+
+</Schema>
+
+</edmx:DataServices>
+
+</edmx:Edmx>

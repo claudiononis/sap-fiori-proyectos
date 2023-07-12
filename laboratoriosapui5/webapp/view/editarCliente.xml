@@ -1,0 +1,53 @@
+<mvc:View controllerName="sapui5.laboratoriosapui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+<Panel headerText="Detalles del Cliente">
+    <content>
+      <Label text="ID" />
+      <Input id="idInput" />
+
+      <Label text="Nombre" />
+      <Input id="nombreInput" />
+
+      <Label text="Calle" />
+      <Input id="calleInput" />
+
+      <Label text="Ciudad" />
+      <Input id="ciudadInput" />
+
+      <Label text="País" />
+      <Input id="paisInput" />
+
+      <Label text="Teléfono" />
+      <Input id="telefonoInput" />
+
+      <Label text="Tipo de Cliente" />
+      <Select id="tipoClienteSelect">
+        <items>
+          <core:Item key="1" text="Tipo 1" />
+          <core:Item key="2" text="Tipo 2" />
+          <!-- Agrega aquí otros tipos de cliente -->
+        </items>
+      </Select>
+
+      <Label text="Descuento" />
+      <Slider id="descuentoSlider" min="0" max="100" />
+
+      <Label text="Email" />
+      <Input id="emailInput" />
+
+      <Label text="Web" />
+      <Input id="webInput" />
+    </content>
+  </Panel>
+
+
+
+
+
+
+
+
+
+
+</mvc:View>    

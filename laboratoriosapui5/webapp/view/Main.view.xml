@@ -59,10 +59,14 @@
                            <Label text="{i18n>Sitio Web}"></Label>
                        </header>
                    </Column>
-
+                   <Column >
+                    <header>
+                        <Label text=""></Label>
+                    </header>
+                </Column>
                </columns>
                <items >
-                   <ColumnListItem  type="DetailAndActive"  press="mifuncion">
+                   <ColumnListItem  type=  "{= ${laboratorio>Custtype} === 'P' ? 'Active' : 'Inactive' }"  press=".onItemPress">
                        <cells>
                            <Label text="{laboratorio>Id}"></Label>
                            <Label text="{laboratorio>Name}"></Label>
@@ -70,10 +74,13 @@
                            <Label text="{laboratorio>City}"></Label>
                            <Label text="{laboratorio>Country}"></Label>
                            <Label text="{laboratorio>Telephone}"></Label>
-                           <Label text="{laboratorio>Custtype}"></Label>
+                           <Label text="{path: 'laboratorio>Custtype', formatter: '.tipoCliente'}"></Label>
+                          
                            <Label text="{laboratorio>Discount}"></Label>
                            <Label text="{laboratorio>Email}"></Label>
                            <Label text="{laboratorio>Webuser}"></Label>
+       
+                          <Button icon="sap-icon://edit" press=".onEdit"  visible ="{= ${laboratorio>Custtype} === 'P' ? true : false }" />
                        </cells>
 
                    </ColumnListItem>
@@ -81,12 +88,12 @@
            </Table>
                    
            </Panel>
-           <Panel id= "pIntegrantes"   class="sapUiSmallMargin"  width="80%" height="30%"  visible="true">
+           <Panel id= "pIntegrantes"   class="sapUiSmallMargin"  width="80%" height="30%"  visible="false">
                  
                 <headerToolbar>
                     <Toolbar>
                         <content>
-                            <Title text="Clientes" level="H2"/><ToolbarSpacer/>
+                            <Title text="Integrantes" level="H2"/><ToolbarSpacer/>
                             <Button text="Agregar" press="onAgregarClick" class="headerButton"/>
                         </content>
                     </Toolbar>

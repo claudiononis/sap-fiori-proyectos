@@ -28,40 +28,59 @@ sap.ui.define([
                 
             } ,
 
-          mifuncion: function(param){
-debugger;         
-var oTabla=this.getView().byId("tIntegrantes");
-oTabla.bindElement(
 
-          "laboratorio>" + param.getSource().getBindingContextPath()
-
-        );
-},
-
-            onRowSelectionChange: function(oEvent) {
-            // Acciones a realizar cuando se selecciona una fila
-                var oSelectedItem = oEvent.getParameter("listItem");
-                var bSelected = oEvent.getParameter("selected");
-
-                if (bSelected) {
-                    // La fila ha sido seleccionada
-                    console.log("selecione");
-                } else {
-                    // La fila ha sido deseleccionada
-                    console.log("deselecione");
+            tipoCliente: function (tipo){
+               
+                if (tipo=='B') {
+                    return 'Cliente Empresa';                  
                 }
-            },
+                else if (tipo=='P') {
+                    return 'Cliente Particular';                  
+                }
+                else                   
+                    return 'Desconocido';  
+                
+            } ,
+
 
 
 
              onEditPress: function(oEvent) {
-      // Acciones a realizar cuando se presione el botón de edición
-      var oSelectedItem = oEvent.getSource().getParent().getParent();
-      var sSelectedName = oSelectedItem.getCells()[0].getText();
-      
-      // Ejemplo de acción: mostrar un mensaje de edición
-      sap.m.MessageToast.show("Editando: " + sSelectedName);
-    },
+                // Acciones a realizar cuando se presione el botón de edición
+                var oSelectedItem = oEvent.getSource().getParent().getParent();
+                var sSelectedName = oSelectedItem.getCells()[0].getText();
+                
+                // Ejemplo de acción: mostrar un mensaje de edición
+                sap.m.MessageToast.show("Editando: " + sSelectedName);
+            },
+
+		onEdit: function(oEvent) {
+            var oItem = oEvent.getSource();
+            var oBindingContext = oItem.getBindingContext();
+            //var sPath = oBindingContext.getPath();
+
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("editarCliente");	
+		},
+
+
+		
+        onItemPress: function(oEvent) {
+           
+                var oTabla=this.getView().byId("tIntegrantes");
+                    oTabla.bindElement( "laboratorio>" + oEvent.getSource().getBindingContextPath() );
+                    var oPanel =this.getView().byId("pIntegrantes");
+                    oPanel.setVisible(true);	
+            
+            },
+
+
+		mifuncion: function(oEvent) {
+            var oTabla=this.getView().byId("tIntegrantes");
+            oTabla.bindElement( "laboratorio>" + oEvent.getSource().getBindingContextPath() );
+            var oPanel =this.getView().byId("pIntegrantes");
+            oPanel.setVisible(true);	
+		},
     
     onDeletePress: function(oEvent) {
       // Acciones a realizar cuando se presione el botón de borrado

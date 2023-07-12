@@ -1,0 +1,104 @@
+<mvc:View controllerName="sapui5.laboratoriosapui5.controller.Main"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"  class="columnView">
+<Panel headerText="Detalles del Cliente">
+
+  <Table  width="70%"  id="editCliente"  >
+    <columns >
+      <Column width="30%">
+        
+      </Column>
+      <Column width="70%">
+        
+      </Column>
+    </columns>
+    <items>
+      <ColumnListItem>
+        <cells>
+          <Label text="ID" />
+          <Input value="" enabled="false" id="id"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Nombre" />
+          <Input value="" enabled="false" id= "Nombre"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Calle" />
+          <Input value="" id="calle" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Ciudad" />
+          <Input value="" id="Ciudad" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="País" />
+          <Input value="" id="pais" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Teléfono" />
+          <Input value="" id="telefono" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Tipo de cliente"  />
+          <Select id="tipo"  enabled="false">
+            <items>
+              <core:Item key="B" text="Empresa" />
+              <core:Item key="P" text="Particular" />
+             
+            </items>
+          </Select>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Descuento" />
+          <Slider  min="0" max="100" id="descuento" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Email" />
+          <Input value="" id="email" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Web" />
+          <Input value="" id="web" enabled="false"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Text text="" />
+          <Toolbar>
+            <ToolbarSpacer />
+            <Button text="Guardar" press="onGuardarPress" visible= "false" id="guardarCliente"/>
+            <ToolbarSpacer width="1rem" />
+            <Button text="Editar" press="onEditarPress" visible= "true" id="editarCliente"/>
+            <ToolbarSpacer width="1rem" />
+            <Button text="Cancelar" press="onCancelarPress" id="cancelarCliente"/>
+            <ToolbarSpacer />
+          </Toolbar>
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+
+    
+  </Panel>
+
+</mvc:View>    

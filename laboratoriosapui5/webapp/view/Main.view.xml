@@ -98,7 +98,7 @@
                         </content>
                     </Toolbar>
                 </headerToolbar>
-                <Table id="tIntegrantes"  items="{laboratorio>Integrantes}">
+                <Table id="tIntegrantes"   items="{laboratorio>Integrantes}">
                     <columns>
                         <Column >
                             <header>

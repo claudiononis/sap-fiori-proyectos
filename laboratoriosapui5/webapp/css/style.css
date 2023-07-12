@@ -1,1 +1,4 @@
 /* Enter your custom styles here */
+.columnView .column {
+    height: 100px;
+  }

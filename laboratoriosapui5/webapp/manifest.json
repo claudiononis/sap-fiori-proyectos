@@ -99,7 +99,17 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "editarcliente",
+          "pattern": "Clientes/{id}",
+          "target": [
+            "editarcliente"
+          ]
+          
         }
+       
+        
       ],
       "targets": {
         "TargetMain": {
@@ -108,6 +118,13 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
+        },
+        "editarcliente": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "EditarCliente",
+          "viewName": "EditarCliente"
         }
       }
     },

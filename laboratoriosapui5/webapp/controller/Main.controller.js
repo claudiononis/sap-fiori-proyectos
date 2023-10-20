@@ -1,10 +1,14 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+  
+  "sap/ui/core/mvc/Controller",
+  "sap/m/Dialog",
+  "sap/m/Button",
+  "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller,Dialog, Button, MessageToast) {
         "use strict";
 
         return Controller.extend("sapui5.laboratoriosapui5.controller.Main", {
@@ -18,7 +22,7 @@ sap.ui.define([
 
               
             edad: function (fecha){
-               console.log(fecha); 
+              /*  console.log(fecha); 
                 var oCurrentDate = new Date();
                 var anio = parseInt(fecha.substring(0,4));
                 if (!isNaN(anio)) {
@@ -27,8 +31,8 @@ sap.ui.define([
                     return diffInYears;  
                 }
                 else
-                    return 0;
-                
+                    return 0; */
+                return "50";
             } ,
 
 
@@ -61,6 +65,8 @@ sap.ui.define([
 
             onAgregarClick:function(oEvent){
                 sap.m.MessageToast.show("Agregar " );
+                var oDialog = this.getView().byId("dialog");
+                oDialog.open();
             },
             
             onItemPress: function(oEvent) {            
@@ -86,7 +92,7 @@ sap.ui.define([
             var oSelectedItem = oEvent.getSource().getParent().getParent();
             var sSelectedName = oSelectedItem.getCells()[0].getText();
             
-            // Ejemplo de acción: mostrar un mensaje de confirmación de borrado
+            //  mostrar un mensaje de confirmación de borrado
             sap.m.MessageBox.confirm("¿Estás seguro de que deseas borrar a " + sSelectedName + "?", {
                 actions: [sap.m.MessageBox.Action.YES, sap.m.MessageBox.Action.NO],
                 onClose: function(oAction) {
@@ -94,7 +100,32 @@ sap.ui.define([
                             // Realizar la acción de borrado
                             sap.m.MessageToast.show("Borrado exitoso: " + sSelectedName);
                         }
-                }
+                },
+
+            handleGuardar: function() {
+              var oDialog = this.getView().byId("dialog");
+              var oNombreInput = this.getView().byId("nombreInput");
+              var oRelacionSelect = this.getView().byId("relacionSelect");
+              var oEdadInput = this.getView().byId("edadInput");
+              var oSexoSelect = this.getView().byId("sexoSelect");
+              var oFechaPicker = this.getView().byId("fechaPicker");
+        
+              var sNombre = oNombreInput.getValue();
+              var sRelacion = oRelacionSelect.getSelectedKey();
+              var iEdad = parseInt(oEdadInput.getValue(), 10);
+              var sSexo = oSexoSelect.getSelectedKey();
+              var dFecha = oFechaPicker.getDateValue();
+        
+              // Aquí puedes enviar los valores al servicio OData utilizando el framework OData adecuado
+        
+              oDialog.close();
+        
+              MessageToast.show("Valores guardados exitosamente");
+            }
+
+
+
+
                 });
             },
 // fin codigo controlador Main

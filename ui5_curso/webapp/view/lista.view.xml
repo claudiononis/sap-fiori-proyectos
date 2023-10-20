@@ -1,0 +1,54 @@
+<mvc:View controllerName="ui5.ui5curso.controller.lista"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page title="Empleados">
+        <headerContent>
+            <Toolbar>
+                <HBox justifyContent="Start">
+                    <Label text="Empleados" class="sapMTitleStyle" /></HBox>
+                    <HBox class="customToolbarSpacer" />
+               
+            </Toolbar>
+        </headerContent>
+        <content>
+          <Label  text="" id="msg" class="sapUiTinyMargin estiloAlerta" design="Bold" textAlign="Right" /> 
+          <Table id="tEmpleados"   growing="true" growingThreshold="20" items="{path:'ui5_datos>/empleadosSet'}" >
+            <columns>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Nombre}"></Label>
+                    </header>
+                </Column>
+                
+                <Column >
+                    <header>
+                        <Label text="{i18n>Apellido}"></Label>
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Cargo}"></Label>
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Estado}"></Label>
+                    </header>
+                </Column>
+                 
+            </columns>
+            <items >
+                <ColumnListItem  id="miColumnListItem" type="Active">
+                    <cells>
+                        <Label text="{ui5_datos>Nombre}"></Label>
+                        <Label text="{ui5_datos>Apellido}"></Label>
+                        <Label text="{ui5_datos>Cargo}"></Label>
+                        <CheckBox selected="{ui5_datos>Activo}"/>                        
+                    </cells>
+
+                </ColumnListItem>
+            </items>
+        </Table>  
+        </content>
+      </Page>
+</mvc:View>

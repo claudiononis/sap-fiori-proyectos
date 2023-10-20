@@ -1,0 +1,118 @@
+<mvc:View controllerName="ui5.ui5final.controller.EditarEmpleado"
+
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"  >
+<Panel headerText="Detalles del Empleado">
+
+  <Table  width="70%"  id="editEmpleado"  >
+    <columns >
+      <Column width="30%">
+        
+      </Column>
+      <Column width="70%">
+        
+      </Column>
+    </columns>
+    <items>
+      <ColumnListItem>
+        <cells>
+          <Label text="ID" />
+          <Input value="{ui5_datos>Idempleado}" enabled="false" id="id"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Nombre" />
+          <Input value="{ui5_datos>Nombre}" enabled="{viewModel>/editmode}" id= "Nombre"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Apellido" />
+          <Input value="{ui5_datos>Apellido}" id="Apellido" enabled="{viewModel>/editmode}"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Cargo" />
+          
+            <Select 
+            id="Cargo"
+            enabled="{viewModel>/editmode}"
+            selectedKey="{ui5_datos>Cargo}"
+        >
+            <core:Item key="EMPLEADO" text="EMPLEADO" />
+            <core:Item key="GERENTE" text="GERENTE" />
+            <core:Item key="DEVELOPER" text="DEVELOPER" />
+            <core:Item key="ADMIN" text="ADMIN" />
+        </Select>
+        
+
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Fecha Ingreso" />
+          
+          <DatePicker  enabled="{viewModel>/editmode}"
+					id="FechaIngreso"
+					value="{ path: 'ui5_datos>FechaIngreso',formatter:'.formatDate'}"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"/>
+           
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Sueldo" />
+          <Input value="{ui5_datos>Sueldo}" id="Sueldo" enabled="{viewModel>/editmode}"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Direccion"  />
+          <Input value="{ui5_datos>Direccion}" id="Direccion" enabled="{viewModel>/editmode}"/>
+          
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Ciudad" />
+          <Input value="{ui5_datos>Ciudad}" id="Ciudad" enabled="{viewModel>/editmode}"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Pais" />
+          <Input value="{ui5_datos>Pais}" id="Pais" enabled="{viewModel>/editmode}"/>
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Label text="Activo" />
+          <CheckBox id="Activo"  selected="{ui5_datos>Activo}"  enabled="{viewModel>/editmode}" />
+         
+        </cells>
+      </ColumnListItem>
+      <ColumnListItem>
+        <cells>
+          <Text text="" />
+          <Toolbar>
+            <ToolbarSpacer />
+            <Button text="Guardar" press="onGuardarPress" visible="{= ${viewModel>/editmode}}" id="guardarCliente"/>
+            <ToolbarSpacer width="1rem" />
+            <Button text="Editar" press="onEditarPress" visible="{= !${viewModel>/editmode}}" id="editarEmpleado"/>
+            <ToolbarSpacer width="1rem" />
+            <Button text="Cancelar" press="onBack" id="cancelarEmpleado"/>
+            <ToolbarSpacer />
+          </Toolbar>
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+  
+    
+  </Panel>
+
+</mvc:View>    

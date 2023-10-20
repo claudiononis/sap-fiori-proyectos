@@ -1,0 +1,14 @@
+<mvc:View controllerName="ui5curso.ui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page title="Página de Inicio de Sesión">
+        <content>          
+          <VBox justifyContent="Center" alignItems="Center" class="sapUiSmallMargin">
+            <Label  text="Inicio de Sesión Fallido" id="errorLabel" visible="false" class="sapUiTinyMargin estiloAlerta" design="Bold" textAlign="Center" />
+            <Input placeholder="Usuario" id="usuarioInput" class="sapUiSmallMargin" />
+            <Input type="Password" placeholder="Contraseña" id="contrasenaInput" class="sapUiSmallMargin" />
+            <Button text="Iniciar Sesión" press="onIniciarSesion" class="sapUiTinyMargin" />
+          </VBox>
+        </content>
+      </Page>
+</mvc:View>

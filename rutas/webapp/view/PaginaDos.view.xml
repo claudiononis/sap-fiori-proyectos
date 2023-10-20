@@ -1,0 +1,7 @@
+<mvc:View controllerName="rutas.controller.PaginaDos"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+       <Label id ="lbMsg" text="Pagina Dos"/>
+    </Page>
+</mvc:View>

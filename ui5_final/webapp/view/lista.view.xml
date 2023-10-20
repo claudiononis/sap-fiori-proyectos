@@ -1,0 +1,69 @@
+<mvc:View controllerName="ui5.ui5final.controller.lista"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page title="Empleados">
+        <Label id="lbText" text="{top>tipo}"></Label>
+        <headerContent>
+            <Toolbar>
+                <HBox justifyContent="Start">
+                    <Label id = "lbUser" text="" class="sapMTitleStyle" /></HBox>
+                    <HBox class="customToolbarSpacer" />
+               
+            </Toolbar>
+        </headerContent>
+        <content>
+            <Button id="btNuevoEmpleado" text="Nuevo Empleado" visible="{= ${top>/tipo} === 'ADMIN'}"  press="onNuevoEmpleadoPress" />
+               
+                <Table id="tEmpleados"   growing="true" growingThreshold="20" items="{path:'ui5_datos>/empleadosSet'}" >
+            <columns>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Nombre}"></Label>
+                    </header>
+                </Column>
+                
+                <Column >
+                    <header>
+                        <Label text="{i18n>Apellido}"></Label>
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Cargo}"></Label>
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="{i18n>Estado}"></Label>
+                    </header>
+                </Column>
+                <Column  id="acciones">
+                    <header>
+                        <Label text=""></Label>
+                    </header>
+                </Column>
+            
+                 
+            </columns>
+            <items >
+                <ColumnListItem  id="miColumnListItem" type="Active" press="onClick">
+                    <cells>
+                        <Label text="{ui5_datos>Nombre}"></Label>
+                        <Label text="{ui5_datos>Apellido}"></Label>
+                        <Label text="{ui5_datos>Cargo}"></Label>
+                        
+                        <CheckBox selected="{ui5_datos>Activo}" enabled="false"/>  
+                        <Button id="bt" icon="sap-icon://delete" press="onDeletePress"  > 
+                            <customData>
+                                <core:CustomData key="idEmpleado" value="{ui5_datos>Idempleado}" writeToDom="true"/>
+                            </customData>  
+                        </Button>                 
+                    </cells> 
+
+                </ColumnListItem>
+            </items>
+        </Table>  
+        </content>
+      </Page>
+</mvc:View>

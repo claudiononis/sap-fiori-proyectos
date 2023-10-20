@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog id="miDialogo" title="Diálogo de ejemplo">
+    <!-- Contenido del diálogo aquí -->
+    <content>
+      <!-- Contenido del diálogo aquí -->
+      <Text text="¡Este es un diálogo de ejemplo!"></Text>
+    </content>
+    <buttons>
+      <Button text="Guardar" press="onGuardarPress"></Button>
+      <Button text="Cancelar" press="onCancelarPress"></Button>
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>

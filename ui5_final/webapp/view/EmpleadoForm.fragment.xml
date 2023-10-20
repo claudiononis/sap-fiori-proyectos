@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core" id="inputdialog">
+    <Dialog id="formEmpleados" contentWidth="40%" afterClose="inClose" afterOpen=".onAfterOpenDialog">
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="SimpleFormDisplay354" layout="ResponsiveGridLayout" title="{i18n>Nuevo Empleado}" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="true">
+                <f:content>
+                    
+
+                   
+                    <Label text="Nombre" labelFor="Nombre" />
+                    <Input id="Nombre" required="true" />
+                    <Label text="Apellido" labelFor="Apellido" />
+                    <Input id="Apellido" required="true" />
+
+                    <Label text="Cargo" labelFor="Cargo" />
+                    <Select id="Cargo">
+                        <core:Item key="0" text="EMPLEADO" />
+                        <core:Item key="1" text="GERENTE" />
+                        <core:Item key="2" text="DEVELOPER" />
+                        <core:Item key="3" text="ADMIN" />
+                    </Select>
+
+                    <Label text="Fecha Ingreso" labelFor="FechaIngreso" />
+                    <DatePicker id="FechaIngreso" class="sapUiSmallMarginBottom" required="true"  
+                    valueFormat="dd/MM/yyyy"
+                    displayFormat="dd/MM/yyyy">
+
+                    </DatePicker>
+                    <Label text="Sueldo" labelFor="Sueldo" />
+                    <Input id="Sueldo" required="true"/>
+
+               
+                    <Label text="Direccion" labelFor="Direccion" />
+                    <Input id="Direccion"  />
+
+                 
+                    <Label text="Ciudad" labelFor="Ciudad" />
+                    <Input id="Ciudad"  />
+
+               
+                    <Label text="Pais" labelFor="Pais" />
+                    <Input id="Pais"  />
+
+                    <Label text="Activo" labelFor="Activo" />
+                    <CheckBox id="Activo" />
+
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <buttons>
+            <Button text="Crear" press=".crearEmpleado"/>
+            <Button text="Cancel" press=".closeDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

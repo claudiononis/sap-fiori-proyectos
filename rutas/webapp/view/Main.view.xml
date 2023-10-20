@@ -1,0 +1,9 @@
+<mvc:View controllerName="rutas.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Input id="idMsg" placeholder="Ingresar dato a enviar a otra pagina"  value="{controller.mivar}"></Input>  
+
+       <Button  id="bBut" press="onEdit"></Button>
+    </Page>
+</mvc:View>

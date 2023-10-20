@@ -1,0 +1,131 @@
+<mvc:View controllerName="tp2.tp2fiori.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Panel headerText="{i18n>tblClientes}" class="sapUiSmallMargin" width="auto" height="50%">
+
+            <Table id="tblClientes" items="{path: 'laboratorio>/ClientesSet', 
+                                            parameters: { expand: 'Integrantes' } }" growing="true" growingThreshold="15">
+
+                <columns>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Id}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Name}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Street}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>City}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Country}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Telephone}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Custtype}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Discount}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Email}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Webuser}"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <items >
+                    <ColumnListItem type="{= ${laboratorio>Custtype} === 'P' ? 'DetailAndActive' : 'Detail' }" 
+                    press="navToIntegrantes" 
+                    detailPress="navToDetalle">
+                        <cells>
+                            <Label text="{laboratorio>Id}"></Label>
+                            <Label text="{laboratorio>Name}"></Label>
+                            <Label text="{laboratorio>Street}"></Label>
+                            <Label text="{laboratorio>City}"></Label>
+                            <Label text="{laboratorio>Country}"></Label>
+                            <Label text="{laboratorio>Telephone}"></Label>
+                            <Label text="{ path: 'laboratorio>Custtype', formatter: '.formatTipoCliente'}" />
+                            <ObjectStatus 
+                                text="{ path: 'laboratorio>Discount', formatter: '.formatDescuento'}" 
+                                state="{= ${laboratorio>Discount} === '000' ? 'Error' : 'Success' }" 
+                                inverted="true"/>
+                            <Label text="{laboratorio>Email}"></Label>
+                            <Label text="{vuelaboratoriolos>Webuser}"></Label>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+        <Panel class="sapUiSmallMargin" width="auto" height="50%" visible="false" id="pnlInteg">
+            <headerToolbar>
+                <OverflowToolbar >
+                    <Title text="{i18n>tblIntegrantes}"></Title>
+                    <ToolbarSpacer />
+                    <Button text="Create" press="createIntegrante" type="Emphasized" />
+                </OverflowToolbar>
+            </headerToolbar>
+            <Table id="tblIntegrantes" items="{laboratorio>Integrantes}" mode="Delete" delete="onDelIntegrante" 
+            growing="true" growingThreshold="20">
+                <columns>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Nombre}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Relacion}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Edad}"></Label>
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="{i18n>Sexo}"></Label>
+                        </header>
+                    </Column>
+                </columns>
+                <items >
+                    <ColumnListItem type="Inactive">
+                        <cells>
+                            <Label text="{laboratorio>Nombre}"></Label>
+                            <Label text="{laboratorio>Relacion}"></Label>
+                            <Label text="{ path: 'laboratorio>FecNac', formatter: '.calcDate'} "></Label>
+                            <Label text="{laboratorio>Sexo}"></Label>
+                        </cells>
+
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+    </Page>
+</mvc:View>

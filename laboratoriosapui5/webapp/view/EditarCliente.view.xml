@@ -97,7 +97,7 @@ xmlns="sap.m"  class="columnView">
       </ColumnListItem>
     </items>
   </Table>
-
+  
     
   </Panel>
 

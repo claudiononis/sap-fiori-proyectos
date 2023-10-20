@@ -1,4 +1,6 @@
 <mvc:View controllerName="sapui5.laboratoriosapui5.controller.Main"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
@@ -66,7 +68,7 @@
                 </Column>
                </columns>
                <items >
-                   <ColumnListItem  type=  "{= ${laboratorio>Custtype} === 'P' ? 'Active' : 'Inactive' }"  press=".onItemPress">
+                   <ColumnListItem  type=  "{= ${laboratorio>Custtype} === 'P' ? 'DetailAndActive' : 'Inactive' }" detailPress=".onEdit" >
                        <cells>
                            <Label text="{laboratorio>Id}"></Label>
                            <Label text="{laboratorio>Name}"></Label>
@@ -80,7 +82,7 @@
                            <Label text="{laboratorio>Email}"></Label>
                            <Label text="{laboratorio>Webuser}"></Label>
        
-                          <Button icon="sap-icon://edit" press=".onEdit"  visible ="{= ${laboratorio>Custtype} === 'P' ? true : false }" />
+                          
                        </cells>
 
                    </ColumnListItem>
@@ -88,7 +90,7 @@
            </Table>
                    
            </Panel>
-           <Panel id= "pIntegrantes"   class="sapUiSmallMargin"  width="80%" height="30%"  visible="false">
+           <Panel id= "pIntegrantes"   class="sapUiSmallMargin"  width="80%" height="30%"  visible="true">
                  
                 <headerToolbar>
                     <Toolbar>
@@ -145,11 +147,41 @@
                     </items>
                 </Table>
                    
+                <Dialog id="dialog" title="Agregar Registro" contentWidth="50%">
+                    <VBox >
+                        <HBox >
+                            <Label text="Nombre"/>
+                            <Input id="nombreInput" />
+                        </HBox>
+                        <HBox>
+                      <Label text="Relación" />
+                      <Select id="relacionSelect">
+                        <core:Item key="1" text="Opción 1" />
+                        <core:Item key="2" text="Opción 2" />
+                        <core:Item key="3" text="Opción 3" />
+                      </Select>
+                      </HBox>
+                      <HBox>
+                      <Label text="Edad" />
+                      <Input id="edadInput" type="Number" />
+                      </HBox>
+                      <HBox>
+                      <Label text="Sexo"  />
+                      <Select id="sexoSelect">
+                        <core:Item key="M" text="Masculino" />
+                        <core:Item key="F" text="Femenino" />
+                      </Select>
+                    </HBox>
+                    <HBox>
+                      <Label text="Fecha" />
+                      <DatePicker id="fechaPicker" />
+                    </HBox>
+                    </VBox>
+                    <Button text="Guardar" press="handleGuardar" />
+                  </Dialog>    
+
            </Panel>
-                   
-          
-           
-        
+  
         
    </Page>
 </mvc:View>

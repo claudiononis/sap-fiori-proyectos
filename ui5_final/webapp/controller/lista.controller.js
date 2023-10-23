@@ -2,14 +2,14 @@ sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
         "ui5/ui5final/model/models" , //  Esta va cuando uso variables declaradas en model/models
-        "sap/ui/core/Fragment",
-        "sap/m/MessageToast"
+        "sap/ui/core/Fragment",       //  Loagrego si uso fragmentes
+        "sap/m/MessageToast"          //  loagrego si uso Mensajes de tipo Toast
     ],
     
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,models,Fragment,MessageToast) {//  agrego models 
+    function (Controller,models,Fragment,MessageToast) {//  agrego models , fragments y toast.
       "use strict";
       var oContexto;
       function _onObjectMatch(oEvent) {
@@ -17,8 +17,15 @@ sap.ui.define(
             // Oculto boton si no es ADMIN
             var btNuevoEmpleado=this.getView().byId("btNuevoEmpleado");
             var oModel = sap.ui.getCore().getModel("top"); // recupero el modelo global
+
+            // Obtengo el label por su ID 
+            var myLabel = this.getView().byId("lbUser");       
+            // Asigna el valor de la variable al label
+            myLabel.setText(sap.ui.getCore().getModel("top").getProperty("/usuario") + ':'+sap.ui.getCore().getModel("top").getProperty("/tipo"));
+
+
             btNuevoEmpleado.setVisible(oModel.getProperty("/tipo") === 'ADMIN');
-        
+           // MUESTRA EL BOTON NUEVO EMPLEADO SI ES ADMINISTRADOR
             var acciones=this.getView().byId("acciones");
             acciones.setVisible(oModel.getProperty("/tipo") === 'ADMIN');
     
@@ -30,6 +37,8 @@ sap.ui.define(
                 oRouter
                   .getRoute("listaEmpleados")  // obtiene la ruta ( en este caso la ruta se llama listaEmpleados)
                   .attachPatternMatched(_onObjectMatch, this); // se asocia la funcion _onObjectMatch  cuando se produce el matcheo de la ruta
+                
+                
                 },
         
         onClick: function (oEvent){

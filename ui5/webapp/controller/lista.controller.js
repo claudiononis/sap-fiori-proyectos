@@ -18,7 +18,7 @@ sap.ui.define(
             // Obtengo el label por su ID 
             var myLabel = this.getView().byId("lbUser");       
             // Asigna el valor de la variable al label
-           // myLabel.setText(sap.ui.getCore().getModel("top").getProperty("/usuario") + ':'+sap.ui.getCore().getModel("top").getProperty("/tipo"));
+            myLabel.setText(sap.ui.getCore().getModel("top").getProperty("/usuario") + ':'+sap.ui.getCore().getModel("top").getProperty("/tipo"));
             var btNuevoEmpleado=this.getView().byId("btNuevoEmpleado");
             if (sap.ui.getCore().getModel("top").getProperty("/tipo") ==='ADMIN')
                  btNuevoEmpleado.setVisible(true);
